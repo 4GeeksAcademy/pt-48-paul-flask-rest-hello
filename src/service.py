@@ -19,7 +19,7 @@ class BDManagement:
     @staticmethod
     def add_new_item(item):
         item_to_add = Item(
-            name=item["name"], description=item["description"], img=item["img"]
+            name=item["name"], description=item["description"]
         )
         Session.add(item_to_add)
         Session.commit()

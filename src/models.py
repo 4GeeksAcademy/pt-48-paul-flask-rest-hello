@@ -19,7 +19,6 @@ class Item(db.Model):
     __tablename__ = "items"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120), unique=True, nullable=False)
-    img = db.Column(db.String(), nullable=False)
     description = db.Column(db.String(), unique=True, nullable=False)
     type = db.Column(db.Enum(ItemType), nullable=False)
 
@@ -35,7 +34,6 @@ class Item(db.Model):
         return {
             "id": self.id,
             "name": self.name,
-            "img": self.img,
             "description": self.description,
             'type': self.type.value
         }
@@ -185,7 +183,6 @@ class Favourite(db.Model):
             "id": self.item_id,
             "name": self.items.name,
             "description": self.items.description,
-            "img": self.items.img,
             "type": self.items.type.value
         }
 
